@@ -28,31 +28,41 @@
 
   <title>Flash cards: {% block title %}{% endblock %}</title>
 </head>
-<body>
 
-  <!-- Primary Page Layout
-  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-  {#{% if session["user_id"] %}#}
+<body><!-- Primary Page Layout
+–––––––––––––––––––––––––––––––––––––––––––––––––– -->
 
-<div class="container">
- <div class="two columns">
-     <h1>Flash</h1>
- </div>
+    <div class="container">
+        <div class="four columns">
+            <h1>Flash cards</h1>
+        </div>
 
- <div id="nav" class="fourteen columns">
-     <ul>
-     <li><a href="#">Home</a></li>
-     <li><a href="#">Create</a></li>
-     <li><a href="#">Modify</a></li>
-     <li><a href="#">Contact</a></li>
-     </ul>
- </div>
-</div>
-  {#{% else %}#}
-  {#{% endif %}#}
-  {% block main %}{% endblock %}
+        {% if session["user_id"] %}
+            <div id="nav" class="eight columns">
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Create</a></li>
+                    <li><a href="#">Modify</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </div>
+        {% else %}
+            <div id="nav" class="five columns">
+            </div>
+            <div id="nav" class="three columns offset-by-five">
+                <ul id="logout">
+                    <li><a href="/login">Log in</a></li>
+                    <li id="register"><a class="button button-primary" href="/register">Register</a></li>
+                </ul>
+            </div>
+        {% endif %}
+    </div>
+    </div>
+    <main class="container">
+        {% block main %}{% endblock %}
+    </main>
 
-<!-- End Document
-  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+        <!-- End Document
+          –––––––––––––––––––––––––––––––––––––––––––––––––– -->
 </body>
 </html>

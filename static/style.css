@@ -9,14 +9,19 @@
 
 #nav ul li {
  display: inline;
- margin: 0 20px 0 0;
- margin-bottom: 130px;
+ margin: 0 20px 130px 0;
 }
 
 #nav a {
  text-decoration: none;
 }
 
-#nav a:hover {
- text-decoration: underline;
+
+#logout {
+ text-align: right;
+ margin-left: auto;
+}
+
+form {
+ text-align: center;
 }

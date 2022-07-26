@@ -25,7 +25,7 @@ def after_request(response):
 
 @app.route('/')
 def index():  # put application's code here
-    return render_template("layout.html")
+    return render_template("index.html")
 
 
 @app.route('/register', methods=["GET", "POST"])
