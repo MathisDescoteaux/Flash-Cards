@@ -1,27 +1,39 @@
 .container {
- margin-top: 50px;
+    margin-top: 50px;
+}
+
+#homeAnchor {
+    color: white;
+    text-decoration: none;
+    font-size: 50px;
 }
 
 #nav {
- margin: 13px 0 0 0;
- alignment: left;
+    margin: 28px 0 0 0;
+    alignment: left;
 }
 
 #nav ul li {
- display: inline;
- margin: 0 20px 130px 0;
+    display: inline;
+    margin: 0 20px 130px 0;
 }
 
 #nav a {
- text-decoration: none;
+    text-decoration: none;
+    color: white;
 }
 
 
 #logout {
- text-align: right;
- margin-left: auto;
+    text-align: right;
+    margin-left: auto;
 }
 
 form {
- text-align: center;
+    text-align: center;
+}
+
+body {
+    background-image: linear-gradient(to right top, #000000, #0b0b0b, #131313, #191919, #1f1f1f, #292929, #333333, #3e3e3e, #505050, #646464, #787878, #8c8c8c);
+    background-attachment: fixed;
 }

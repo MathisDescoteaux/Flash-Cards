@@ -11,7 +11,10 @@ app.config["SESSION_PERMANENT"] = False
 app.config["SESSION_TYPE"] = "filesystem"
 Session(app)
 
-db = sqlite3.connect("flashcards")
+
+def db_connection():
+    db = sqlite3.connect("flashcards")
+    return db
 
 
 @app.after_request
@@ -24,7 +27,7 @@ def after_request(response):
 
 
 @app.route('/')
-def index():  # put application's code here
+def index():
     return render_template("index.html")
 
 
@@ -32,17 +35,19 @@ def index():  # put application's code here
 def register():
     username = request.form.get("username")
     password = request.form.get("password")
-    confirmation = request.form.get("confirmation")
+    confirm = request.form.get("confirm")
     if request.method == "POST":
-
-        if username is None:
-            pass
-        elif password is None:
-            pass
-        elif confirmation is None:
-            pass
-        db.execute("INSERT INTO users (username, hash) VALUES (?, ?)", (username, generate_password_hash(password)))
-        return redirect("/login")
+        db = db_connection()
+        if db.execute("SELECT * FROM users WHERE username = ?", (username,)).fetchall():
+            return render_template("index.html")
+        elif username == "":
+            return render_template("index.html")
+        elif password == "" or confirm == "" or password != confirm:
+            return render_template("index.html")
+        db.execute("INSERT INTO users (username, hash) VALUES(?, ?)", (username, generate_password_hash(password)))
+        db.commit()
+        db.close()
+        return render_template("login.html")
     return render_template("register.html")
 
 
