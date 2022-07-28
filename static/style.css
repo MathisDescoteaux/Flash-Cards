@@ -24,9 +24,8 @@
 }
 
 
-#logout {
+#logout, #login {
     text-align: right;
-    margin-left: auto;
 }
 
 form {

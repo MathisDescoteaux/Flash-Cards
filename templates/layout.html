@@ -43,19 +43,23 @@
     </div>
 
     {% if session["user_id"] %}
-        <div id="nav" class="eight columns">
+        <div id="nav" class="six columns">
             <ul>
-                <li><a href="#">Home</a></li>
+                <li><a href="#">Collections</a></li>
                 <li><a href="#">Create</a></li>
                 <li><a href="#">Modify</a></li>
-                <li><a href="#">Contact</a></li>
+            </ul>
+        </div>
+        <div id="nav" class="two columns">
+            <ul id="logout">
+                <li><a href="/logout">Log out</a></li>
             </ul>
         </div>
     {% else %}
         <div id="nav" class="five columns">
         </div>
         <div id="nav" class="three columns offset-by-five">
-            <ul id="logout">
+            <ul id="login">
                 <li><a href="/login">Log in</a></li>
                 <li id="register"><a class="button" href="/register">Register</a></li>
             </ul>
