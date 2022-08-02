@@ -1,0 +1,81 @@
+{% extends "layout.html" %}
+
+{% block title %}Card creation{% endblock %}
+
+{% block script %}
+    <script>
+        function radioCheck() {
+            if (document.getElementById('multipleChoices').checked) {
+                document.getElementById('multipleChoice').style.display = "block";
+            } else {
+                document.getElementById('multipleChoice').style.display = "none";
+            }
+        }
+
+        function questionCount() {
+            let count = +document.getElementById("selectCount").value
+            let lis = [document.getElementById("answerThree"), document.getElementById("answerFour")]
+            for (let i = 0; i < count - 2; i++) {
+                lis[i].style.visibility = "visible";
+            }
+            if (count === 3) {
+                for (let i = 0; i < count - 2; i++) {
+                    lis.reverse()[i].style.visibility = "hidden";
+                }
+            } else if (count == 2) {
+                for (let i = 0; i < 2; i++)
+                    lis[i].style.visibility = "hidden";
+            }
+        }
+    </script>
+
+{% endblock %}
+
+{% block main %}
+    <div class="container">
+        <div class="eight columns offset-by-two">
+            <form method="post">
+                <h1>New card</h1>
+                <label for="content">Card content</label>
+                <textarea id="content" placeholder="Your question here"></textarea>
+                <table>
+                    <tr>
+                        <td>
+                            <input type="radio" onclick="radioCheck()" name="cardType" id="trueFalse"
+                                   value="trueFalse"/> True/False
+                        </td>
+                        <td>
+                            <input type="radio" onclick="radioCheck()" name="cardType" id="yesNo" value="yesNo"/>
+                            Yes/No
+                        </td>
+                        <td>
+                            <input type="radio" onclick="radioCheck()" name="cardType" id="multipleChoices"
+                                   value="multipleChoices"/>
+                            Multiple choices
+                        </td>
+                        <td>
+                            <input type="radio" onclick="radioCheck()" name="cardType" id="openEnd"
+                                   value="openEnd"/>
+                            Open end
+                        </td>
+                    </tr>
+                </table>
+                <div style="display: none" id="multipleChoice">
+                    <select onchange="questionCount()" id="selectCount">
+                        {% for i in range(3) %}
+                            <option>{{ i + 2 }}</option>
+                        {% endfor %}
+                    </select>
+                    <div>
+                        <input type="text" name="answerOne" placeholder="Answer #1">
+                        <input type="text" name="answerTwo" placeholder="Answer #2">
+                        <input type="text" name="answerThree" placeholder="Answer #3" id="answerThree">
+                        <input type="text" name="answerFour" placeholder="Answer #4" id="answerFour">
+                    </div>
+                </div>
+                <button class="button">Create card</button>
+            </form>
+        </div>
+    </div>
+
+{% endblock %}

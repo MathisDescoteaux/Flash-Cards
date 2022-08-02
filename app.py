@@ -72,5 +72,35 @@ def logout():
     return redirect('/')
 
 
+@app.route('/collections')
+@login_required
+def collections():
+    return render_template("collections.html")
+
+
+@app.route('/create')
+@login_required
+def create():
+    return render_template("create.html")
+
+
+@app.route('/create/card', methods=["GET", "POST"])
+@login_required
+def create_card():
+    return render_template("createcard.html")
+
+
+@app.route('/create/collection')
+@login_required
+def create_collection():
+    return render_template("createcollection.html")
+
+
+@app.route('/modify')
+@login_required
+def modify():
+    return render_template("modify.html")
+
+
 if __name__ == '__main__':
     app.run()

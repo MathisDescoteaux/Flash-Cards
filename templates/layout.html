@@ -24,7 +24,10 @@
 
     <!-- Favicon
     –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-    <link rel="icon" type="image/png">
+    <link rel="apple-touch-icon" sizes="180x180" href="../static/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../static/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../static/favicon-16x16.png">
+    <link rel="manifest" href="../static/site.webmanifest">
 
     <title>Flash cards: {% block title %}{% endblock %}</title>
 
@@ -34,20 +37,20 @@
 
 </head>
 
-<body><!-- Primary Page Layout
+<body><!-- Nav Bar
 –––––––––––––––––––––––––––––––––––––––––––––––––– -->
 
 <div class="container">
     <div class="four columns">
-        <a id="homeAnchor" href="/">Flash cards</a>
+        <h1 id="homeAnchor">Flash cards</h1>
     </div>
 
     {% if session["user_id"] %}
         <div id="nav" class="six columns">
             <ul>
-                <li><a href="#">Collections</a></li>
-                <li><a href="#">Create</a></li>
-                <li><a href="#">Modify</a></li>
+                <li><a href="/collections">Collections</a></li>
+                <li><a href="/create">Create</a></li>
+                <li><a href="/modify">Modify</a></li>
             </ul>
         </div>
         <div id="nav" class="two columns">
@@ -66,6 +69,8 @@
         </div>
     {% endif %}
 </div>
+<!-- Page Layout
+–––––––––––––––––––––––––––––––––––––––––––––––––– -->
 <main class="container">
     {% block main %}{% endblock %}
 </main>

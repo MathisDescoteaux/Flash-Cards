@@ -5,12 +5,16 @@
 #homeAnchor {
     color: white;
     text-decoration: none;
-    font-size: 50px;
+    font-size: 50px !important;
 }
 
 #nav {
-    margin: 28px 0 0 0;
+    margin: 18px 0 0 0;
     alignment: left;
+}
+
+#login {
+    margin: -13px 0 0 0;
 }
 
 #nav ul li {
@@ -20,7 +24,6 @@
 
 #nav a {
     text-decoration: none;
-    color: white;
 }
 
 
@@ -33,6 +36,67 @@ form {
 }
 
 body {
-    background-image: linear-gradient(to right top, #000000, #0b0b0b, #131313, #191919, #1f1f1f, #292929, #333333, #3e3e3e, #505050, #646464, #787878, #8c8c8c);
-    background-attachment: fixed;
+    background-color: #181818;
+}
+
+
+#create {
+    color: white;
+    list-style-type: none;
+    max-width: 500px;
+    text-align: center;
+
+}
+
+a {
+    color: white;
+    font-size: 11px;
+    font-weight: 600;
+    line-height: 38px;
+    letter-spacing: .1rem;
+    text-transform: uppercase;
+}
+
+a:hover {
+    color: #888;
+}
+
+thead {
+    font-size: 22px;
+}
+
+.button-create {
+    min-width: 200px;
+}
+
+textarea {
+    color: black !important;
+    resize: none;
+    min-height: 100px;
+}
+
+h1, label {
+    color: white;
+}
+
+.inline-radio {
+    display: inline-block;
+}
+
+table {
+    color: white;
+    margin: 0 auto;
+}
+
+td {
+    border-bottom: none;
+}
+
+input:disabled {
+    color: white;
+    background-color: grey;
+}
+
+#answerThree, #answerFour {
+    visibility: hidden;
 }
